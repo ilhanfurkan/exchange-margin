@@ -11,10 +11,10 @@ app.use(cors());
 app.use(json());
 
 
-// mongoose
-//     .connect(process.env.MONGO_URI)
-//     .then(() => console.log("database connected successfully"))
-//     .catch((err) => console.log("error connecting to mongodb", err));
+ mongoose
+     .connect(process.env.MONGO_URI)
+     .then(() => console.log("database connected successfully"))
+     .catch((err) => console.log("error connecting to mongodb", err));
 
 
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
