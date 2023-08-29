@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const coinGeckoController = require('../controller/coin_gecko');
+const coinGeckoController = require("../controller/test2");
 
-router.get('/pairs', coinGeckoController.getPairs);
+router.get("/pairs", coinGeckoController.getPairs);
 
 module.exports = router;

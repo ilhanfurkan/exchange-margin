@@ -1,0 +1,66 @@
+const getOrderListRequest = (payload) => {
+  return {
+    instType: payload.instType,
+    uly: payload.uly,
+    instFamily: payload.instFamily,
+    instId: payload.instId,
+    ordType: payload.ordType,
+    state: payload.state,
+    after: payload.after,
+    before: payload.after,
+    limit: payload.limit,
+  };
+};
+
+const getOrderListResponse = (payload) => {
+  return {
+    accFillSz: payload.accFillSz,
+    avgPx: payload.avgPx,
+    cTime: payload.cTime,
+    category: payload.category,
+    ccy: payload.ccy,
+    clOrdId: payload.clOrdId,
+    fee: payload.fee,
+    feeCcy: payload.feeCcy,
+    fillPx: payload.fillPx,
+    fillSz: payload.fillSz,
+    fillTime: payload.fillTime,
+    instId: payload.instId,
+    instType: payload.instType,
+    lever: payload.lever,
+    ordId: payload.ordId,
+    ordType: payload.ordType,
+    pnl: payload.pnl,
+    posSide: payload.posSide,
+    px: payload.px,
+    rebate: payload.rebate,
+    rebateCcy: payload.rebateCcy,
+    side: payload.side,
+    attachAlgoClOrdId: payload.attachAlgoClOrdId,
+    slOrdPx: payload.slOrdPx,
+    slTriggerPx: payload.slTriggerPx,
+    slTriggerPxType: payload.slTriggerPxType,
+    state: payload.state,
+    stpId: payload.stpId,
+    stpMode: payload.stpMode,
+    sz: payload.sz,
+    tag: payload.tag,
+    tgtCcy: payload.tgtCcy,
+    tdMode: payload.tdMode,
+    source: payload.source,
+    tpOrdPx: payload.tpOrdPx,
+    tpTriggerPx: payload.tpTriggerPx,
+    tpTriggerPxType: payload.tpTriggerPxType,
+    tradeId: payload.tradeId,
+    reduceOnly: payload.reduceOnly,
+    quickMgnType: payload.quickMgnType,
+    algoClOrdId: payload.algoClOrdId,
+    algoId: payload.algoId,
+    uTime: payload.uTime,
+  };
+};
+
+module.exports = {
+  getOrderListRequest,
+  getOrderListResponse,
+};
