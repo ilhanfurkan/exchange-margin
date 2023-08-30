@@ -46,3 +46,24 @@ exports.newPostRequestHeaders = async function (
 exports.newRequestBody = (body) => {
   return JSON.stringify(body);
 };
+
+exports.newQueryParams = (params) => {
+  if (params === null) return "";
+
+  const val = JSON.parse(JSON.stringify(params));
+
+  let query = "";
+
+  for (const [key, value] of Object.entries(val)) {
+    const valueOf = value !== null ? String(value) : "";
+
+    if (valueOf.trim() !== "") {
+      if (query === "") query += "?";
+      if (query.length > 1) query += "&";
+
+      query += `${key}=${encodeURIComponent(valueOf)}`;
+    }
+  }
+
+  return query;
+};
