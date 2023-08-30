@@ -1,4 +1,3 @@
-const Test = require("../models/test");
 const bcrypt = require("bcrypt");
 
 exports.testController = async (req, res) => {
@@ -7,7 +6,6 @@ exports.testController = async (req, res) => {
 
     console.log("req body name: ", name);
 
-    const test = new Test({ name });
     await test.save();
 
     const token = createToken({ name: test.name }, "1d");
