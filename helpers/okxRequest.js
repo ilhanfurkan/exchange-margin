@@ -9,7 +9,7 @@ const axios = require("axios");
 
 const { makeResponse } = require("../middleware/okxResponse");
 
-const newGetRequest = async (request, response, url, body) => {
+exports.newGetRequest = async (request, response, url, body) => {
   try {
     const params = newQueryParams(request(body));
     const newHead = await newGetRequestHeaders(
@@ -31,7 +31,8 @@ const newGetRequest = async (request, response, url, body) => {
     return errorResponse(res, "Bad Request", 400, error.message);
   }
 };
-const newPostRequest = async (request, response, url, body) => {
+
+exports.newPostRequest = async (request, response, url, body) => {
   try {
     const requestBody = newRequestBody(request(body));
     const newHead = await newPostRequestHeaders(
