@@ -5,7 +5,7 @@ const getRiskStateRequest = (payload) => {
       // No Request
     };
 }
-  const getAccountRiskStateResponse = (payload) => {
+  const getRiskStateResponse = (payload) => {
     return {
      atRisk: payload.atRisk,
      atRiskIdx: [payload.atRiskIdx],
@@ -16,6 +16,6 @@ const getRiskStateRequest = (payload) => {
   
   module.exports = {
     getRiskStateRequest,
-    getAccountRiskStateResponse,
+    getRiskStateResponse,
   };
   

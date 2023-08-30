@@ -1,13 +1,13 @@
 const { newGetRequest, newPostRequest } = require("../../helpers/okxRequest");
 const {
-  getBalancesRequest,
-  getBalancesResponse,
-} = require("../../utils/OKX/FundingAccount/GetBalances");
-exports.getBalances = async (body) => {
+  getInstrumentsRequest,
+  getInstrumentsResponse,
+} = require("../../utils/OKX/Public/GetInstruments");
+exports.getInstruments = async (body) => {
   return newGetRequest(
-    getBalancesRequest,
-    getBalancesResponse,
-    "asset/balances",
+    getInstrumentsRequest,
+    getInstrumentsResponse,
+    "public/instruments",
     body
   );
 };
