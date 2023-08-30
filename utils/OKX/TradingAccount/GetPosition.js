@@ -1,4 +1,4 @@
-const getPositionRequest = (payload) => {
+const getPositionsRequest = (payload) => {
   return {
     instType: payload.instType,
     instId: payload.instId,
@@ -6,7 +6,7 @@ const getPositionRequest = (payload) => {
   };
 };
 
-const getPositionResponse = (payload) => {
+const getPositionsResponse = (payload) => {
   return {
     adl: payload.adl,
     availPos: payload.availPos,
@@ -70,6 +70,6 @@ const getPositionResponse = (payload) => {
 };
 
 module.exports = {
-  getPositionRequest,
-  getPositionResponse,
+  getPositionsRequest,
+  getPositionsResponse,
 };
