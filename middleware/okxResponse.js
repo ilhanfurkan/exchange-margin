@@ -1,7 +1,13 @@
+const { errorResponse } = require("../helpers/response");
+
 exports.makeResponse = (response, data) => {
-  const list = [];
-  data.map((dt) => {
-    list.push(response(dt));
-  });
-  return list;
+  if (data.code === "0") {
+    const list = [];
+    data.data.map((dt) => {
+      list.push(response(dt));
+    });
+    return list;
+  } else {
+    return errorResponse(response, data.msg, data.code);
+  }
 };
