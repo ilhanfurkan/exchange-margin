@@ -1,6 +1,6 @@
-const CryptoJS = require('crypto-js');
+const CryptoJS = require("crypto-js");
 
-exports.sign = (timestamp, secretKey, path) => {
+exports.signGet = (timestamp, secretKey, path) => {
   const sign = CryptoJS.enc.Base64.stringify(
     CryptoJS.HmacSHA256(timestamp + "GET" + path, secretKey)
   );
