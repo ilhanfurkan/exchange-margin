@@ -37,13 +37,12 @@ exports.newPostRequest = async (request, response, url, body) => {
   try {
     const requestBody = newRequestBody(request(body));
     const newHead = await newPostRequestHeaders(
-     "328f1b3a-ade9-47e1-a90e-48c534884bc8",
-      "G67O!b#AbOsT530C3e8FBg6g",
-      "6E9D31BA87D0265F444D68E9B7C3DEB1",
+      "924f1240-6840-43a4-b2e7-c9ada5d6b884",
+      "V6jD!b#AgVdtVqJg3e8FO7ib",
+      "B9650791E0076E73D8C3D8BF54A47FF0",
       process.env.OKX_BASE_PATH + url,
       requestBody
     );
-   console.log(newHead)
     const result = await axios.post(
       process.env.OKX_URL + process.env.OKX_BASE_PATH + url,
       requestBody,
@@ -55,7 +54,7 @@ exports.newPostRequest = async (request, response, url, body) => {
     );
     return makeResponse(response, result.data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return errorResponse("Bad Request", 400, error.msg);
   }
 };
