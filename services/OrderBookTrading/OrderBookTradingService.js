@@ -53,11 +53,11 @@ const {
 } = require("../../utils/OKX/OrderBookTrading/PostPlaceOrder");
 
 exports.getFills = async (body) => {
-  return newGetRequest(getFillsRequest, getFillsResponse, "trade/fills", body);
+  return await newGetRequest(getFillsRequest, getFillsResponse, "trade/fills", body);
 };
 
 exports.getFillsHistory = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getFillsHistoryRequest,
     getFillsHistoryResponse,
     "trade/fills-history",
@@ -66,7 +66,7 @@ exports.getFillsHistory = async (body) => {
 };
 
 exports.getOneClickRepayCurrencyList = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getOneClickRepayCurrencyListRequest,
     getOneClickRepayCurrencyListResponse,
     "trade/one-click-repay-currency-list",
@@ -75,7 +75,7 @@ exports.getOneClickRepayCurrencyList = async (body) => {
 };
 
 exports.getOneClickRepayHistory = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getOneClickRepayHistoryRequest,
     getOneClickRepayHistoryResponse,
     "trade/one-click-repay-history",
@@ -84,7 +84,7 @@ exports.getOneClickRepayHistory = async (body) => {
 };
 
 exports.getOrderHistory = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getOrderHistoryRequest,
     getOrderHistoryResponse,
     "trade/orders-history",
@@ -93,7 +93,7 @@ exports.getOrderHistory = async (body) => {
 };
 
 exports.getOrderHistoryArchive = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getOrderHistoryArchiveRequest,
     getOrderHistoryArchiveResponse,
     "trade/orders-history-archive",
@@ -102,7 +102,7 @@ exports.getOrderHistoryArchive = async (body) => {
 };
 
 exports.getOrderList = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getOrderListRequest,
     getOrderListResponse,
     "trade/orders-pending",
@@ -111,7 +111,7 @@ exports.getOrderList = async (body) => {
 };
 
 exports.getTickers = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getTickersRequest,
     getTickersResponse,
     "market/tickers",
@@ -120,7 +120,7 @@ exports.getTickers = async (body) => {
 };
 
 exports.postCancelOrder = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postCancelOrderRequest,
     postCancelOrderResponse,
     "trade/cancel-order",
@@ -129,7 +129,7 @@ exports.postCancelOrder = async (body) => {
 };
 
 exports.postClosePosition = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postClosePositionRequest,
     postClosePositionResponse,
     "trade/close-position",
@@ -138,7 +138,7 @@ exports.postClosePosition = async (body) => {
 };
 
 exports.postOneClickRepay = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postOneClickRepayRequest,
     postOneClickRepayResponse,
     "trade/one-click-repay",
@@ -147,7 +147,7 @@ exports.postOneClickRepay = async (body) => {
 };
 
 exports.postPlaceOrder = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postPlaceOrderRequest,
     postPlaceOrderResponse,
     "trade/order",

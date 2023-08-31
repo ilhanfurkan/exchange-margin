@@ -12,7 +12,7 @@ const {
   postTransferResponse,
 } = require("../../utils/OKX/SubAccount/PostTransfer");
 exports.getBalances = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBalancesRequest,
     getBalancesResponse,
     "account/subaccount/balances",
@@ -21,7 +21,7 @@ exports.getBalances = async (body) => {
 };
 
 exports.getMaxWithdrawal = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getMaxWithdrawalRequest,
     getMaxWithdrawalResponse,
     "account/subaccount/max-withdrawal",
@@ -30,7 +30,7 @@ exports.getMaxWithdrawal = async (body) => {
 };
 
 exports.postTransfer = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postTransferRequest,
     postTransferResponse,
     "asset/subaccount/transfer",

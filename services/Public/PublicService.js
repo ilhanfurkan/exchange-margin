@@ -4,7 +4,7 @@ const {
   getInstrumentsResponse,
 } = require("../../utils/OKX/Public/GetInstruments");
 exports.getInstruments = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getInstrumentsRequest,
     getInstrumentsResponse,
     "public/instruments",

@@ -145,7 +145,7 @@ const {
 } = require("../../utils/OKX/TradingAccount/PostSimulatedMargin");
 
 exports.getAccountPositionRisk = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getAccountPositionRiskRequest,
     getAccountPositionRiskResponse,
     "account/account-position-risk",
@@ -154,7 +154,7 @@ exports.getAccountPositionRisk = async (body) => {
 };
 
 exports.getAdjustLeverageInfo = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getAdjustLeverageInfoRequest,
     getAdjustLeverageInfoResponse,
     "account/adjust-leverage-info",
@@ -163,7 +163,7 @@ exports.getAdjustLeverageInfo = async (body) => {
 };
 
 exports.getBalance = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBalanceRequest,
     getBalanceResponse,
     "account/balance",
@@ -172,7 +172,7 @@ exports.getBalance = async (body) => {
 };
 
 exports.getBills = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBillsRequest,
     getBillsResponse,
     "account/bills",
@@ -181,7 +181,7 @@ exports.getBills = async (body) => {
 };
 
 exports.getBillsArchive = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBillsArchiveRequest,
     getBillsArchiveResponse,
     "account/bills-archive",
@@ -189,7 +189,7 @@ exports.getBillsArchive = async (body) => {
   );
 };
 exports.getBillsArchive = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBillsArchiveRequest,
     getBillsArchiveResponse,
     "account/bills-archive",
@@ -198,7 +198,7 @@ exports.getBillsArchive = async (body) => {
 };
 
 exports.getBorrowRepayHistory = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBorrowRepayHistoryRequest,
     getBorrowRepayHistoryResponse,
     "account/borrow-repay-history",
@@ -207,7 +207,7 @@ exports.getBorrowRepayHistory = async (body) => {
 };
 
 exports.getConfig = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getConfigRequest,
     getConfigResponse,
     "account/config",
@@ -215,7 +215,7 @@ exports.getConfig = async (body) => {
   );
 };
 exports.getInterestedAccrued = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getInterestAccruedRequest,
     getInterestAccruedResponse,
     "account/interest-accrued",
@@ -224,7 +224,7 @@ exports.getInterestedAccrued = async (body) => {
 };
 
 exports.getInterestLimits = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getInterestLimitsRequest,
     getInterestLimitsResponse,
     "account/interest-limit",
@@ -233,7 +233,7 @@ exports.getInterestLimits = async (body) => {
 };
 
 exports.getInterestRate = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getInterestRateRequest,
     getInterestRateResponse,
     "account/interest-rate",
@@ -242,7 +242,7 @@ exports.getInterestRate = async (body) => {
 };
 
 exports.getLeverageInfo = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getLeverageInfoRequest,
     getLeverageInfoResponse,
     "account/leverage-info",
@@ -251,7 +251,7 @@ exports.getLeverageInfo = async (body) => {
 };
 
 exports.getMaxAvailSize = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getMaxAvailSizeRequest,
     getMaxAvailSizeResponse,
     "account/max-avail-size",
@@ -260,7 +260,7 @@ exports.getMaxAvailSize = async (body) => {
 };
 
 exports.getMaxLoan = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getMaxLoanRequest,
     getMaxLoanResponse,
     "account/max-loan",
@@ -269,7 +269,7 @@ exports.getMaxLoan = async (body) => {
 };
 
 exports.getMaxSize = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getMaxSizeRequest,
     getMaxSizeResponse,
     "account/max-size",
@@ -278,7 +278,7 @@ exports.getMaxSize = async (body) => {
 };
 
 exports.getMMPConfig = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getMMPConfigRequest,
     getMMPConfigResponse,
     "account/mmp-config",
@@ -287,7 +287,7 @@ exports.getMMPConfig = async (body) => {
 };
 
 exports.getPositions = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getPositionsRequest,
     getPositionsResponse,
     "account/positions",
@@ -296,7 +296,7 @@ exports.getPositions = async (body) => {
 };
 
 exports.getPositionsHistory = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getPositionHistoryRequest,
     getPositionHistoryResponse,
     "account/positions-history",
@@ -305,7 +305,7 @@ exports.getPositionsHistory = async (body) => {
 };
 
 exports.getQuickMarginBorrowRepayHistoryRequest = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getQuickMarginBorrowRepayHistoryRequest,
     getQuickMarginBorrowRepayHistoryResponse,
     "account/quick-margin-borrow-repay-history",
@@ -314,7 +314,7 @@ exports.getQuickMarginBorrowRepayHistoryRequest = async (body) => {
 };
 
 exports.getRiskState = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getRiskStateRequest,
     getRiskStateResponse,
     "account/risk-state",
@@ -322,7 +322,7 @@ exports.getRiskState = async (body) => {
   );
 };
 exports.getTradeFee = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getTradeFeeRequest,
     getTradeFeeResponse,
     "account/trade-fee",
@@ -330,7 +330,7 @@ exports.getTradeFee = async (body) => {
   );
 };
 exports.getVipInterestAccrued = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getVipInterestAccruedRequest,
     getVipInterestAccruedResponse,
     "account/vip-interest-accrued",
@@ -338,7 +338,7 @@ exports.getVipInterestAccrued = async (body) => {
   );
 };
 exports.getVipInterestDeducted = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getVipInterestDeductedRequest,
     getVipInterestDeductedResponse,
     "account/vip-interest-deducted",
@@ -346,7 +346,7 @@ exports.getVipInterestDeducted = async (body) => {
   );
 };
 exports.getVipLoanOrderDetail = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getVipLoanOrderDetailRequest,
     getVipLoanOrderDetailResponse,
     "account/vip-loan-order-detail",
@@ -354,7 +354,7 @@ exports.getVipLoanOrderDetail = async (body) => {
   );
 };
 exports.getVipLoanOrderList = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getVipLoanOrderListRequest,
     getVipLoanOrderListResponse,
     "account/vip-loan-order-list",
@@ -362,7 +362,7 @@ exports.getVipLoanOrderList = async (body) => {
   );
 };
 exports.postBorrowRepay = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postBorrowRepayRequest,
     postBorrowRepayResponse,
     "account/borrow-repay",
@@ -370,7 +370,7 @@ exports.postBorrowRepay = async (body) => {
   );
 };
 exports.postMMPConfig = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postMMPConfigRequest,
     postMMPConfigResponse,
     "account/mmp-config",
@@ -378,7 +378,7 @@ exports.postMMPConfig = async (body) => {
   );
 };
 exports.postMMPReset = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postMMPResetRequest,
     postMMPResetResponse,
     "account/mmp-reset",
@@ -386,7 +386,7 @@ exports.postMMPReset = async (body) => {
   );
 };
 exports.postPositionMarginBalance = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postPositionMarginBalanceRequest,
     postPositionMarginBalanceResponse,
     "account/position/margin-balance",
@@ -394,7 +394,7 @@ exports.postPositionMarginBalance = async (body) => {
   );
 };
 exports.postQuickMarginBorrowRepay = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postQuickMarginBorrowRepayRequest,
     postQuickMarginBorrowRepayResponse,
     "account/quick-margin-borrow-repay",
@@ -402,7 +402,7 @@ exports.postQuickMarginBorrowRepay = async (body) => {
   );
 };
 exports.postSetAutoLoan = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postSetAutoLoanRequest,
     postSetAutoLoanResponse,
     "account/set-auto-loan",
@@ -410,7 +410,7 @@ exports.postSetAutoLoan = async (body) => {
   );
 };
 exports.postSetIsolatedMode = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postSetIsolatedModeRequest,
     postSetIsolatedModeResponse,
     "account/set-isolated-mode",
@@ -418,7 +418,7 @@ exports.postSetIsolatedMode = async (body) => {
   );
 };
 exports.postSetLeverage = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postSetLeverageRequest,
     postSetLeverageResponse,
     "account/set-leverage",
@@ -426,7 +426,7 @@ exports.postSetLeverage = async (body) => {
   );
 };
 exports.postSetPositionMode = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postSetPositionRequest,
     postSetPositionResponse,
     "account/set-position-mode",
@@ -434,7 +434,7 @@ exports.postSetPositionMode = async (body) => {
   );
 };
 exports.postSetRiskOffsetType = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postSetRiskOffsetTypeRequest,
     postSetRiskOffsetTypeResponse,
     "account/set-riskOffset-type",
@@ -442,7 +442,7 @@ exports.postSetRiskOffsetType = async (body) => {
   );
 };
 exports.postSimulatedMargin = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postSimulatedMarginRequest,
     postSimulatedMarginResponse,
     "account/simulated_margin",

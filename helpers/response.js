@@ -2,7 +2,7 @@ exports.defaultResponse = (res, result, code, message) => {
   return res.status(code).json(result);
 };
 
-exports.successResponse = (res, result, code, message) => {
+exports.successResponse = (result, code, message) => {
   return res.status(code).json({
     timestamp: new Date().toISOString(),
     status: code,
@@ -12,12 +12,10 @@ exports.successResponse = (res, result, code, message) => {
   });
 };
 
-exports.errorResponse = (res, message, code) => {
-  return res.status(code).json({
+exports.errorResponse = (message, code) => {
+  return {
     timestamp: new Date().toISOString(),
     status: code,
     message,
-    path: res.req?.path,
-    data: res.req?.body,
-  });
+  };
 };

@@ -7,8 +7,10 @@ const {
   postAssetTransferRequest,
   postAssetTransferResponse,
 } = require("../../utils/OKX/FundingAccount/PostAssetTransfer");
+
+
 exports.getBalances = async (body) => {
-  return newGetRequest(
+  return await newGetRequest(
     getBalancesRequest,
     getBalancesResponse,
     "asset/balances",
@@ -17,7 +19,7 @@ exports.getBalances = async (body) => {
 };
 
 exports.postAssetTransfer = async (body) => {
-  return newPostRequest(
+  return await newPostRequest(
     postAssetTransferRequest,
     postAssetTransferResponse,
     "asset/transfer",

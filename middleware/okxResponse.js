@@ -8,6 +8,6 @@ exports.makeResponse = (response, data) => {
     });
     return list;
   } else {
-    return errorResponse(response, data.msg, data.code);
+    return errorResponse(data.msg, data.code);
   }
 };
