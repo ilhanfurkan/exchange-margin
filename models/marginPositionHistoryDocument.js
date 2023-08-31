@@ -1,17 +1,11 @@
 const mongoose = require("mongoose");
 const uuid = require("uuid");
 
-const marginOrderHistoryDocument = new mongoose.Schema({
+const marginPositionHistorySchema = new mongoose.Schema({
   _id: {
     type: String,
     required: true,
     default: () => uuid.v4(),
-  },
-  subAccount: {
-    type: String,
-  },
-  customerId: {
-    type: Number,
   },
   instType: {
     type: String,
@@ -19,60 +13,69 @@ const marginOrderHistoryDocument = new mongoose.Schema({
   instId: {
     type: String,
   },
-  tradeId: {
+  mgnMode: {
     type: String,
   },
-  clOrdId: {
+  type: {
     type: String,
   },
-  billId: {
+  cTime: {
     type: String,
   },
-  tag: {
+  uTime: {
     type: String,
   },
-  fillPx: {
+  openAvgPx: {
     type: String,
   },
-  fillSz: {
+  closeAvgPx: {
     type: String,
   },
-  fillIdxPx: {
+  posId: {
     type: String,
   },
-  fillPnl: {
+  openMaxPos: {
     type: String,
   },
-  side: {
+  closeTotalPos: {
     type: String,
   },
-  posSide: {
-    type: String,
-  },
-  execType: {
-    type: String,
-  },
-  feeCcy: {
+  realizedPnl: {
     type: String,
   },
   fee: {
     type: String,
   },
-  ts: {
+  fundingFee: {
     type: String,
   },
-  orderCreatedAt: {
-    type: Date,
-  },
-  fillTime: {
+  liqPenalty: {
     type: String,
   },
-  feeRate: {
+  pnl: {
+    type: String,
+  },
+  pnlRatio: {
+    type: String,
+  },
+  lever: {
+    type: String,
+  },
+  direction: {
+    type: String,
+  },
+  triggerPx: {
+    type: String,
+  },
+  uly: {
+    type: String,
+  },
+  ccy: {
     type: String,
   },
 });
 
 module.exports = mongoose.model(
-  "MarginOrderHistoryDocument",
-  marginOrderHistoryDocument
+  "MarginPositionHistoryDocument",
+  marginPositionHistorySchema
 );
