@@ -4,13 +4,7 @@ const {
   defaultResponse,
 } = require("../helpers/response");
 
-const {
-  getInstrumentsRequest,
-  getInstrumentsResponse,
-} = require("../utils/OKX/Public/GetInstruments");
-
 const { getInstruments } = require("../services/OKX/Public/PublicService");
-const marketDocument = require("../models/marketDocument");
 const { fillMarket } = require("../services/Market/MarketService");
 
 exports.fillMarket = async (req, res) => {
@@ -22,3 +16,4 @@ exports.fillMarket = async (req, res) => {
     errorResponse("Bad Request", 400);
   }
 };
+

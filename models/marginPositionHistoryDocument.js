@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const uuid = require("uuid");
 
+const tradeMgnMode = ["cross", "isolated", "cash"];
+const tradeType = ["1", "2", "3", "4", "5"];
+
 const marginPositionHistorySchema = new mongoose.Schema({
   _id: {
     type: String,
@@ -15,9 +18,11 @@ const marginPositionHistorySchema = new mongoose.Schema({
   },
   mgnMode: {
     type: String,
+    enum: tradeMgnMode,
   },
   type: {
     type: String,
+    enum: tradeType,
   },
   cTime: {
     type: String,
