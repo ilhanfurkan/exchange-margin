@@ -1,36 +1,39 @@
-const { newGetRequest, newPostRequest } = require("../../helpers/okxRequest");
+const {
+  newGetRequest,
+  newPostRequest,
+} = require("../../../helpers/okxRequest");
 const {
   getFillsRequest,
   getFillsResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetFills");
+} = require("../../../utils/OKX/OrderBookTrading/GetFills");
 const {
   getFillsHistoryRequest,
   getFillsHistoryResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetFillsHistory");
+} = require("../../../utils/OKX/OrderBookTrading/GetFillsHistory");
 const {
   getOneClickRepayCurrencyListRequest,
   getOneClickRepayCurrencyListResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetOneClickRepayCurrencyList");
+} = require("../../../utils/OKX/OrderBookTrading/GetOneClickRepayCurrencyList");
 const {
   getOneClickRepayHistoryRequest,
   getOneClickRepayHistoryResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetOneClickRepayHistory");
+} = require("../../../utils/OKX/OrderBookTrading/GetOneClickRepayHistory");
 const {
   getOrderHistoryRequest,
   getOrderHistoryResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetOrderHistory");
+} = require("../../../utils/OKX/OrderBookTrading/GetOrderHistory");
 const {
   getOrderHistoryArchiveRequest,
   getOrderHistoryArchiveResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetOrderHistoryArchive");
+} = require("../../../utils/OKX/OrderBookTrading/GetOrderHistoryArchive");
 const {
   getOrderListRequest,
   getOrderListResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetOrderList");
+} = require("../../../utils/OKX/OrderBookTrading/GetOrderList");
 const {
   getTickersRequest,
   getTickersResponse,
-} = require("../../utils/OKX/OrderBookTrading/GetTickers");
+} = require("../../../utils/OKX/OrderBookTrading/GetTickers");
 const {
   postBatchOrdersRequest,
   postBatchOrdersResponse,
@@ -38,22 +41,27 @@ const {
 const {
   postCancelOrderRequest,
   postCancelOrderResponse,
-} = require("../../utils/OKX/OrderBookTrading/PostCancelOrder");
+} = require("../../../utils/OKX/OrderBookTrading/PostCancelOrder");
 const {
   postClosePositionRequest,
   postClosePositionResponse,
-} = require("../../utils/OKX/OrderBookTrading/PostClosePosition");
+} = require("../../../utils/OKX/OrderBookTrading/PostClosePosition");
 const {
   postOneClickRepayRequest,
   postOneClickRepayResponse,
-} = require("../../utils/OKX/OrderBookTrading/PostOneClickRepay");
+} = require("../../../utils/OKX/OrderBookTrading/PostOneClickRepay");
 const {
   postPlaceOrderRequest,
   postPlaceOrderResponse,
-} = require("../../utils/OKX/OrderBookTrading/PostPlaceOrder");
+} = require("../../../utils/OKX/OrderBookTrading/PostPlaceOrder");
 
 exports.getFills = async (body) => {
-  return await newGetRequest(getFillsRequest, getFillsResponse, "trade/fills", body);
+  return await newGetRequest(
+    getFillsRequest,
+    getFillsResponse,
+    "trade/fills",
+    body
+  );
 };
 
 exports.getFillsHistory = async (body) => {

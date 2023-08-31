@@ -7,18 +7,17 @@ const {
 const {
   getInstrumentsRequest,
   getInstrumentsResponse,
-} = require("../utils/OKX/Public/GetInstruments")
+} = require("../utils/OKX/Public/GetInstruments");
 
-const { getInstruments } = require("../services/Public/PublicService");
-const marketDocument = require('../models/marketDocument');
+const { getInstruments } = require("../services/OKX/Public/PublicService");
+const marketDocument = require("../models/marketDocument");
+const { fillMarket } = require("../services/Market/MarketService");
 
 exports.fillMarket = async (req, res) => {
   try {
-    const list = await getInstruments(req.body);
-    list.forEach(async (item) => {
-      await new marketDocument(getInstrumentsResponse(item)).save();
-    });
-    defaultResponse(res, list, 200, "OK: Successful");
+    const list = await getInstruments({ instType: "MARGIN" });
+    const marketList = await fillMarket(list);
+    defaultResponse(res, marketList, 200, "OK: Successful");
   } catch (error) {
     errorResponse("Bad Request", 400);
   }

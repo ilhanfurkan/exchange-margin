@@ -1,13 +1,15 @@
-const { newGetRequest, newPostRequest } = require("../../helpers/okxRequest");
+const {
+  newGetRequest,
+  newPostRequest,
+} = require("../../../helpers/okxRequest");
 const {
   getBalancesRequest,
   getBalancesResponse,
-} = require("../../utils/OKX/FundingAccount/GetBalances");
+} = require("../../../utils/OKX/FundingAccount/GetBalances");
 const {
   postAssetTransferRequest,
   postAssetTransferResponse,
-} = require("../../utils/OKX/FundingAccount/PostAssetTransfer");
-
+} = require("../../../utils/OKX/FundingAccount/PostAssetTransfer");
 
 exports.getBalances = async (body) => {
   return await newGetRequest(
