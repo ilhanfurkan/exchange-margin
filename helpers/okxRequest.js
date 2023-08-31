@@ -8,14 +8,15 @@ const { errorResponse } = require("./response");
 const axios = require("axios");
 
 const { makeResponse } = require("../middleware/okxResponse");
+const res = require("express/lib/response");
 
 exports.newGetRequest = async (request, response, url, body) => {
   try {
     const params = newQueryParams(request(body));
     const newHead = await newGetRequestHeaders(
-      process.env.OKX_API_KEY,
-      process.env.OKX_PASSPHRASE,
-      process.env.OKX_SECRET_KEY,
+      "328f1b3a-ade9-47e1-a90e-48c534884bc8",
+      "G67O!b#AbOsT530C3e8FBg6g",
+      "6E9D31BA87D0265F444D68E9B7C3DEB1",
       process.env.OKX_BASE_PATH + url + params
     );
     const result = await axios.get(
@@ -36,18 +37,19 @@ exports.newPostRequest = async (request, response, url, body) => {
   try {
     const requestBody = newRequestBody(request(body));
     const newHead = await newPostRequestHeaders(
-      process.env.OKX_API_KEY,
-      process.env.OKX_PASSPHRASE,
-      process.env.OKX_SECRET_KEY,
-      process.env.OKX_BASE_PATH + url
+      "328f1b3a-ade9-47e1-a90e-48c534884bc8",
+      "G67O!b#AbOsT530C3e8FBg6g",
+      "6E9D31BA87D0265F444D68E9B7C3DEB1",
+      process.env.OKX_BASE_PATH + url,
+      requestBody
     );
     const result = await axios.post(
       process.env.OKX_URL + process.env.OKX_BASE_PATH + url,
+      requestBody,
       {
         headers: {
           ...newHead,
         },
-        requestBody,
       }
     );
     return makeResponse(response, result.data);

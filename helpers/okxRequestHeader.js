@@ -24,19 +24,19 @@ exports.newPostRequestHeaders = async function (
   okxKey,
   okxPassphrase,
   secretKey,
-  path
+  path,
+  body
 ) {
   var myDate = new Date(); // Your timezone!
   var myEpoch = myDate.getTime() / 1000.0;
   const timestamp = myEpoch.toString();
-
-  const signdData = signPost(timestamp, secretKey, path, body);
+  const signedData = signPost(timestamp, secretKey, path, body);
 
   const headers = {};
   headers["Content-Type"] = "application/json";
   headers["Accept"] = "application/json";
   headers["OK-ACCESS-KEY"] = okxKey;
-  headers["OK-ACCESS-SIGN"] = signdData;
+  headers["OK-ACCESS-SIGN"] = signedData;
   headers["OK-ACCESS-TIMESTAMP"] = timestamp;
   headers["OK-ACCESS-PASSPHRASE"] = okxPassphrase;
 
