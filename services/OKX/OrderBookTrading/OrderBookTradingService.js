@@ -97,9 +97,10 @@ exports.getOrderHistory = async (body) => {
 };
 
 exports.getOrderHistoryArchive = async (body) => {
+  
   return await newGetRequest(
-    getOrderHistoryArchiveRequest,
-    getOrderHistoryArchiveResponse,
+   getOrderHistoryArchiveRequest,
+   getOrderHistoryArchiveResponse,
     "trade/orders-history-archive",
     body
   );
