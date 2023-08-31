@@ -35,10 +35,6 @@ const {
   getTickersResponse,
 } = require("../../../utils/OKX/OrderBookTrading/GetTickers");
 const {
-  postBatchOrdersRequest,
-  postBatchOrdersResponse,
-} = require("../../utils/OKX/OrderBookTrading/PostBatchOrders");
-const {
   postCancelOrderRequest,
   postCancelOrderResponse,
 } = require("../../../utils/OKX/OrderBookTrading/PostCancelOrder");

@@ -33,14 +33,6 @@ const {
   getConfigRequest,
   getConfigResponse,
 } = require("../../../utils/OKX/TradingAccount/GetConfig");
-// const {
-//   getInterestAccruedRequest,
-//   getInterestAccruedResponse,
-// } = require("../../../utils/OKX/TradingAccount/GetInterestedAccrued");
-// const {
-//   getInterestLimitsRequest,
-//   getInterestLimitsResponse,
-// } = require("../../../utils/OKX/TradingAccount/GetInterestLimit");
 const {
   getInterestRateRequest,
   getInterestRateResponse,
@@ -61,10 +53,6 @@ const {
   getMaxSizeRequest,
   getMaxSizeResponse,
 } = require("../../../utils/OKX/TradingAccount/GetMaxSize");
-// const {
-//   getMMPConfigRequest,
-//   getMMPConfigResponse,
-// } = require("../../../utils/OKX/TradingAccount/GetMMPConfig");
 const {
   getPositionsRequest,
   getPositionsResponse,
@@ -459,7 +447,6 @@ exports.postSimulatedMargin = async (body) => {
 };
 
 exports.postSetAccountLevel = async (body) => {
-
   return await newPostRequest(
     postSetAccountLevelRequest,
     postSetAccountLevelResponse,
