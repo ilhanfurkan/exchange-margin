@@ -1,5 +1,8 @@
 const { get } = require("express/lib/response");
-const { newGetRequest, newPostRequest } = require("../../../helpers/okxRequest");
+const {
+  newGetRequest,
+  newPostRequest,
+} = require("../../../helpers/okxRequest");
 
 const {
   getAccountPositionRiskRequest,
@@ -143,6 +146,11 @@ const {
   postSimulatedMarginRequest,
   postSimulatedMarginResponse,
 } = require("../../../utils/OKX/TradingAccount/PostSimulatedMargin");
+
+const {
+  postSetAccountLevelRequest,
+  postSetAccountLevelResponse,
+} = require("../../../utils/OKX/TradingAccount/PostSetAccountLevel");
 
 exports.getAccountPositionRisk = async (body) => {
   return await newGetRequest(
@@ -446,6 +454,16 @@ exports.postSimulatedMargin = async (body) => {
     postSimulatedMarginRequest,
     postSimulatedMarginResponse,
     "account/simulated_margin",
+    body
+  );
+};
+
+exports.postSetAccountLevel = async (body) => {
+
+  return await newPostRequest(
+    postSetAccountLevelRequest,
+    postSetAccountLevelResponse,
+    "account/set-account-level",
     body
   );
 };
