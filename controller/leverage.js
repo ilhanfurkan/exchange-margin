@@ -1,8 +1,5 @@
-const {
-  successResponse,
-  errorResponse,
-  defaultResponse,
-} = require("../helpers/response");
+const { defaultResponse } = require("../helpers/response");
+const { ResponseMessages } = require("../helpers/responseMessages");
 
 const {
   postSetLeverage,
@@ -11,8 +8,8 @@ const {
 exports.setLeverage = async (req, res) => {
   try {
     const leverageReq = await postSetLeverage(req.body);
-    defaultResponse(res, leverageReq, 200, "OK: Successful");
+    defaultResponse(res, leverageReq, ResponseMessages.Ok);
   } catch (error) {
-    errorResponse("Bad Request", 400);
+    defaultResponse(res, null, ResponseMessages.InvalidRequest);
   }
 };

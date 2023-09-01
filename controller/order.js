@@ -6,24 +6,21 @@ const {
 const {
   getOrderHistoryArchive,
 } = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
-const {
-  successResponse,
-  errorResponse,
-  defaultResponse,
-} = require("../helpers/response");
+const { defaultResponse } = require("../helpers/response");
 
 const {
   postPlaceOrder,
 } = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
 const { placeOrders } = require("../services/Order/OrderService");
+const { ResponseMessages } = require("../helpers/responseMessages");
 
 exports.postPlaceOrder = async (req, res) => {
   try {
     const response = await postPlaceOrder(req.body);
     await placeOrders(req.body, response);
-    defaultResponse(res, response, 200, "OK: Successful");
+    defaultResponse(res, response, ResponseMessages.Ok);
   } catch (error) {
-    errorResponse("Bad Request", 400);
+    defaultResponse(res, null, ResponseMessages.InvalidRequest);
   }
 };
 
@@ -33,8 +30,8 @@ exports.getOrderHistory = async (req, res) => {
 
     const orderHistory = await fillOrderHistoryArchive(orderHistoryList);
 
-    defaultResponse(res, orderHistoryList, 200, "OK: Successful");
+    defaultResponse(res, orderHistory, ResponseMessages.Ok);
   } catch (error) {
-    errorResponse("Bad Request", 400);
+    defaultResponse(res, null, ResponseMessages.InvalidRequest);
   }
 };

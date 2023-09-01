@@ -1,8 +1,5 @@
-const {
-  successResponse,
-  errorResponse,
-  defaultResponse,
-} = require("../helpers/response");
+const { defaultResponse } = require("../helpers/response");
+const { ResponseMessages } = require("../helpers/responseMessages");
 
 const {
   postSetAccountLevel,
@@ -11,8 +8,8 @@ const {
 exports.setAccountMode = async (req, res) => {
   try {
     const accountLevel = await postSetAccountLevel(req.body);
-    defaultResponse(res, accountLevel, 200, "OK: Successful");
+    defaultResponse(res, accountLevel, ResponseMessages.Ok);
   } catch (error) {
-    errorResponse("Bad Request", 400);
+    defaultResponse(res, null, ResponseMessages.InvalidRequest);
   }
 };

@@ -4,11 +4,12 @@ const {
   newQueryParams,
   newRequestBody,
 } = require("./okxRequestHeader");
-const { errorResponse } = require("./response");
+const { defaultResponse } = require("./response");
 const axios = require("axios");
 
 const { makeResponse } = require("../middleware/okxResponse");
 const res = require("express/lib/response");
+const { ResponseMessages } = require("./responseMessages");
 
 exports.newGetRequest = async (request, response, url, body) => {
   try {
@@ -27,11 +28,11 @@ exports.newGetRequest = async (request, response, url, body) => {
         },
       }
     );
-   
+
     return makeResponse(response, result.data);
   } catch (error) {
     console.log(error);
-    return errorResponse("Bad Request", 400, error.message);
+    return defaultResponse(result, null, ResponseMessages.InvalidCredentials);
   }
 };
 
@@ -57,6 +58,6 @@ exports.newPostRequest = async (request, response, url, body) => {
     return makeResponse(response, result.data);
   } catch (error) {
     console.log(error);
-    return errorResponse("Bad Request", 400, error.msg);
+    return defaultResponse(result, null, ResponseMessages.InvalidCredentials);
   }
 };

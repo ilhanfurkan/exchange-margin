@@ -1,21 +1,10 @@
-exports.defaultResponse = (res, result, code, message) => {
-  return res.status(code).json(result);
-};
-
-exports.successResponse = (result, code, message) => {
-  return res.status(code).json({
+exports.defaultResponse = (res, result, responseMessage) => {
+  return res.status(responseMessage.httpStatus).json({
     timestamp: new Date().toISOString(),
-    status: code,
-    message,
-    path: res.req?.path,
+    status: responseMessage.httpStatus,
+    message: responseMessage.message,
+    path: "",
+    code: responseMessage.code,
     data: result,
   });
-};
-
-exports.errorResponse = (message, code) => {
-  return {
-    timestamp: new Date().toISOString(),
-    status: code,
-    message,
-  };
 };

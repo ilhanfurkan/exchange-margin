@@ -10,6 +10,6 @@ exports.fillMarket = async (items) => {
       await new marketDocument(fillMarketRequest(item)).save();
     }
   });
-  return await marketDocument.find({}).exec();
+  const marketList = await marketDocument.find({}).exec();
+  return marketList;
 };
-
