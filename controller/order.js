@@ -1,3 +1,4 @@
+
 const {
   fillOrderHistoryArchive,
   fillOrderRequest,
@@ -5,11 +6,22 @@ const {
 
 const {defaultResponse, errorResponse} = require("../helpers/response");
 const {getOrderHistoryArchive} = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
-exports.placeOrder = async (req, res) => {
+const {
+  successResponse,
+  errorResponse,
+  defaultResponse,
+} = require("../helpers/response");
+
+const { postPlaceOrder } = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
+const { placeOrders } = require("../services/Order/OrderService");
+
+exports.postPlaceOrder = async (req, res) => {
   try {
-    console.log("first");
+    const request = await postPlaceOrder(req.body);
+    await placeOrders(request,res);
+    defaultResponse(res, request, 200, "OK: Successful");
   } catch (error) {
-    console.log("hi bitch!");
+    errorResponse("Bad Request", 400);
   }
 };
 

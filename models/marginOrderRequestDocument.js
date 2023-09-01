@@ -31,15 +31,7 @@ const marginOrderRequestDocument = new mongoose.Schema(
       required: true,
       default: () => uuid.v4(),
     },
-    customerId: {
-      nullable: false,
-      type: Number,
-    },
-    marketName: {
-      nullable: false,
-      type: String,
-    },
-    instID: {
+    instId: {
       nullable: false,
       type: String,
     },
@@ -53,11 +45,11 @@ const marginOrderRequestDocument = new mongoose.Schema(
     tgtCcy: {
       type: String,
     },
-    clOrdID: {
+    clOrdIdReq: {
       nullable: false,
       type: String,
     },
-    tag: {
+    tagReq: {
       nullable: false,
       type: String,
     },
@@ -111,13 +103,18 @@ const marginOrderRequestDocument = new mongoose.Schema(
     ordId: {
       type: String,
     },
+    clOrdIdRes: {
+      nullable: false,
+      type: String,
+    },
+    tagRes: {
+      nullable: false,
+      type: String,
+    },
     sCode: {
       type: String,
     },
     sMsg: {
-      type: String,
-    },
-    tradeType: {
       type: String,
     },
     tradeStatus: {
@@ -125,15 +122,12 @@ const marginOrderRequestDocument = new mongoose.Schema(
       type: String,
       enum: tradeStatusEnum,
       defaultValue: "IS_OPEN",
-    },
-    expiresAt: {
-      type: Date,
-    },
+    }
   },
   { timestamps: true }
 );
 
 module.exports = mongoose.model(
-  "MarginOrderRequestDocument",
+  "OrderRequestDocument",
   marginOrderRequestDocument
 );
