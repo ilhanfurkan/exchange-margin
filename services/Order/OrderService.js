@@ -8,15 +8,14 @@ const marginOrderRequestDocument = require("../../models/marginOrderRequestDocum
 const { OrderRequest } = require("../../utils/Order/OrderRequest");
 
 exports.placeOrders = async (request, response) => {
-  console.log(request, "slam");
-  if (request?.status === "0") {
+  if (!response?.status) {
     await new marginOrderRequestDocument(
       OrderRequest(request, response)
     ).save();
     return await marginOrderRequestDocument.find({}).exec();
   } else {
-    console.log(item);
-    return await item.message;
+    console.log(response)
+    return await response.message;
   }
 };
 
