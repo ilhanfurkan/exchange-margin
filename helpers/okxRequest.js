@@ -27,8 +27,10 @@ exports.newGetRequest = async (request, response, url, body) => {
         },
       }
     );
+   
     return makeResponse(response, result.data);
   } catch (error) {
+    console.log(error);
     return errorResponse("Bad Request", 400, error.message);
   }
 };
