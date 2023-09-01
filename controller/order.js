@@ -6,7 +6,7 @@ const {
 
 const {
   getOrderHistoryArchive,
-  getOrderList
+  getOrderList,
 } = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
 const { defaultResponse } = require("../helpers/response");
 
@@ -15,8 +15,12 @@ const {
 } = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
 const { placeOrders } = require("../services/Order/OrderService");
 const { ResponseMessages } = require("../helpers/responseMessages");
-const {openOrders} = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
-const {postCancelOrder} = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
+const {
+  openOrders,
+} = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
+const {
+  postCancelOrder,
+} = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
 exports.postPlaceOrder = async (req, res) => {
   try {
     const response = await postPlaceOrder(req.body);
@@ -27,11 +31,11 @@ exports.postPlaceOrder = async (req, res) => {
   }
 };
 
-
-
 exports.getOrderHistory = async (req, res) => {
   try {
-    const orderHistoryList = await getOrderHistoryArchive({ instType: "MARGIN" });
+    const orderHistoryList = await getOrderHistoryArchive({
+      instType: "MARGIN",
+    });
 
     const orderHistory = await fillOrderHistoryArchive(orderHistoryList);
 
@@ -42,14 +46,10 @@ exports.getOrderHistory = async (req, res) => {
 };
 
 exports.getOpenOrder = async (req, res) => {
-  try { 
-    console.log('cihan', req.body)
+  try {
     const openOrders = await getOrderList(req.body);
-    console.log('Açık emirler',openOrders)
-  
     defaultResponse(res, openOrders, ResponseMessages.Ok);
   } catch (error) {
-    console.log('Cihan errorrrrr',error)
     defaultResponse(res, null, ResponseMessages.InvalidRequest);
   }
 };
@@ -57,8 +57,9 @@ exports.getOpenOrder = async (req, res) => {
 exports.postCancelOrder = async (req, res) => {
   try {
     const response = await postCancelOrder(req.body);
+
     defaultResponse(res, response, ResponseMessages.Ok);
   } catch (error) {
     defaultResponse(res, null, ResponseMessages.InvalidRequest);
   }
-}
+};

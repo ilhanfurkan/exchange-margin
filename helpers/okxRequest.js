@@ -14,7 +14,7 @@ const { ResponseMessages } = require("./responseMessages");
 exports.newGetRequest = async (request, response, url, body) => {
   try {
     const params = newQueryParams(request(body));
-    
+
     const newHead = await newGetRequestHeaders(
       "924f1240-6840-43a4-b2e7-c9ada5d6b884",
       "V6jD!b#AgVdtVqJg3e8FO7ib",
@@ -30,10 +30,9 @@ exports.newGetRequest = async (request, response, url, body) => {
         },
       }
     );
-      console.log('result',result.data)
+
     return makeResponse(response, result.data);
   } catch (error) {
-    console.log(error);
     return defaultResponse(result, null, ResponseMessages.InvalidCredentials);
   }
 };
@@ -57,9 +56,9 @@ exports.newPostRequest = async (request, response, url, body) => {
         },
       }
     );
+
     return makeResponse(response, result.data);
   } catch (error) {
-    console.log(error);
     return defaultResponse(result, null, ResponseMessages.InvalidCredentials);
   }
 };

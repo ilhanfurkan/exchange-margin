@@ -14,7 +14,6 @@ exports.placeOrders = async (request, response) => {
     ).save();
     return await marginOrderRequestDocument.find({}).exec();
   } else {
-    console.log(response)
     return await response.message;
   }
 };
