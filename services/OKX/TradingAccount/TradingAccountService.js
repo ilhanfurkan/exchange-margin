@@ -56,7 +56,7 @@ const {
 const {
   getPositionsRequest,
   getPositionsResponse,
-} = require("../../../utils/OKX/TradingAccount/GetPosition");
+} = require("../../../utils/OKX/TradingAccount/GetPositions");
 const {
   getPositionHistoryRequest,
   getPositionHistoryResponse,
