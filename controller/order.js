@@ -19,9 +19,9 @@ const { placeOrders } = require("../services/Order/OrderService");
 
 exports.postPlaceOrder = async (req, res) => {
   try {
-    const request = await postPlaceOrder(req.body);
-    await placeOrders(request, res);
-    defaultResponse(res, request, 200, "OK: Successful");
+    const response = await postPlaceOrder(req.body);
+    await placeOrders(req.body, response);
+    defaultResponse(res, response, 200, "OK: Successful");
   } catch (error) {
     errorResponse("Bad Request", 400);
   }
