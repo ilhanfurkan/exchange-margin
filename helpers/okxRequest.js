@@ -14,12 +14,14 @@ const { ResponseMessages } = require("./responseMessages");
 exports.newGetRequest = async (request, response, url, body) => {
   try {
     const params = newQueryParams(request(body));
+    
     const newHead = await newGetRequestHeaders(
-      "328f1b3a-ade9-47e1-a90e-48c534884bc8",
-      "G67O!b#AbOsT530C3e8FBg6g",
-      "6E9D31BA87D0265F444D68E9B7C3DEB1",
+      "924f1240-6840-43a4-b2e7-c9ada5d6b884",
+      "V6jD!b#AgVdtVqJg3e8FO7ib",
+      "B9650791E0076E73D8C3D8BF54A47FF0",
       process.env.OKX_BASE_PATH + url + params
     );
+
     const result = await axios.get(
       process.env.OKX_URL + process.env.OKX_BASE_PATH + url + params,
       {
@@ -28,7 +30,7 @@ exports.newGetRequest = async (request, response, url, body) => {
         },
       }
     );
-
+      console.log('result',result.data)
     return makeResponse(response, result.data);
   } catch (error) {
     console.log(error);

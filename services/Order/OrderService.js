@@ -56,3 +56,8 @@ exports.fillOrderHistory = async (items) => {
   });
   return await marketDocument.find({}).exec();
 };
+
+exports.getOpenOrders = async (items) => {
+   
+  return await  items;
+}
