@@ -22,13 +22,18 @@ const {
   postCancelOrder,
 } = require("../services/OKX/OrderBookTrading/OrderBookTradingService");
 exports.postPlaceOrder = async (req, res) => {
-  try {
-    const response = await postPlaceOrder(req.body);
-    await placeOrders(req.body, response);
-    defaultResponse(res, response, ResponseMessages.Ok);
-  } catch (error) {
-    defaultResponse(res, null, ResponseMessages.InvalidRequest);
-  }
+  postPlaceOrder(req.body)
+    .then(async (response) => {
+      await placeOrders(req.body, response);
+      return { req, res, response };
+    })
+    .then(({ req, res, response }) => {
+      defaultResponse(res, response, ResponseMessages.Ok);
+    })
+    .catch((error) => {
+      console.error(error);
+      defaultResponse(res, error, ResponseMessages.InvalidCredentials);
+    });
 };
 
 exports.getOrderHistory = async (req, res) => {

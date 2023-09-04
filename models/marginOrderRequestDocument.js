@@ -14,15 +14,6 @@ const tradeOrderTypeEnum = [
 ];
 const triggerPriceTypeEnum = ["last", "index", "mark"];
 const quickMarginTypeEnum = ["manual", "auto_borrow", "auto_repay"];
-const tradeStatusEnum = [
-  "IS_OPEN",
-  "FINISHED",
-  "CANCELLED_BY_USER",
-  "CANCELLED_BY_ADMIN",
-  "EXPIRED",
-  "WAITING",
-  "FINISHED_WITHOUT_TRANSACTION",
-];
 
 const marginOrderRequestDocument = new mongoose.Schema(
   {
@@ -102,26 +93,6 @@ const marginOrderRequestDocument = new mongoose.Schema(
     },
     ordId: {
       type: String,
-    },
-    clOrdIdRes: {
-      nullable: false,
-      type: String,
-    },
-    tagRes: {
-      nullable: false,
-      type: String,
-    },
-    sCode: {
-      type: String,
-    },
-    sMsg: {
-      type: String,
-    },
-    tradeStatus: {
-      nullable: false,
-      type: String,
-      enum: tradeStatusEnum,
-      defaultValue: "IS_OPEN",
     }
   },
   { timestamps: true }

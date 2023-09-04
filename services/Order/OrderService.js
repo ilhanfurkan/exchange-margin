@@ -4,13 +4,17 @@ const marginOrderHistoryDocument = require("../../models/marginOrderHistoryDocum
 
 const MarginOrderHistoryArchiveDocument = require("../../models/MarginOrderHistoryArchiveDocument");
 const { fillOrderHistoryArchive } = require("../../utils/Order/OrderHistory");
-const marginOrderRequestDocument = require("../../models/marginOrderRequestDocument");
-const { OrderRequest } = require("../../utils/Order/OrderRequest");
+const marginOrderRequestDocument = require("../../models/marginOrderRequestDocument")
+const marginOrderResponseDocument = require("../../models/marginOrderResponseDocument")
+const { OrderRequest, OrderResponse } = require("../../utils/Order/OrderRequest");
 
 exports.placeOrders = async (request, response) => {
   if (!response?.status) {
     await new marginOrderRequestDocument(
       OrderRequest(request, response)
+    ).save();
+    await new marginOrderResponseDocument(
+      OrderResponse(response)
     ).save();
     return await marginOrderRequestDocument.find({}).exec();
   } else {

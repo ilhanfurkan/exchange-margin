@@ -23,10 +23,6 @@ exports.OrderRequest = (req,res) => {
     quickMgnType: req.quickMgnType,
     stpId: req.stpId,
     stpMode: req.stpMode,
-    ordId: res[0].ordId,
-    clOrdIdRes: res[0].clOrdId,
-    tagRes: res[0].tag,
-    sCode: res[0].sCode,
-    sMsg: res[0].sMsg,
+    ordId: res[0].ordId
   };
 };

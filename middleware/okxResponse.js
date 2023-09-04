@@ -4,8 +4,14 @@ exports.makeResponse = (response, data) => {
     data.data.map((dt) => {
       list.push(response(dt));
     });
-    return list;
+    return {
+      data: list,
+      error: null
+    };
   } else {
-    return null;
+    return {
+      data: null,
+      error: data
+    };
   }
 };
